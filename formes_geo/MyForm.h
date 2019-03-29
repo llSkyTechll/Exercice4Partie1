@@ -226,90 +226,99 @@ namespace formes_geo {
 #pragma endregion
 
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-			 comboFigure->Items->Add("");
-			 comboFigure->Items->Add("Carre");
-			 comboFigure->Items->Add("Cercle");
-			 figureCourante = NULL;
-			 InitialiserTextBox();
-		 }
+	comboFigure->Items->Add("");
+	comboFigure->Items->Add("Carre");
+	comboFigure->Items->Add("Cercle");
+	figureCourante = NULL;
+	InitialiserTextBox();
+}
 
-		 void InitialiserTextBox()
-		 {
-			 textX->Text = "0";
-			 textY->Text = "0";
-			 textCote->Text = "0";
-			 textRayon->Text = "0";
-		 }
+void InitialiserTextBox()
+{
+	textX->Text = "0";
+	textY->Text = "0";
+	textCote->Text = "0";
+	textRayon->Text = "0";
+}
 
 private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs^  e) {
-			 	int cpt=0;
+	int cpt=0;
+	if (comboFigure->SelectedIndex != 0)
+	{					
+		if (comboFigure->SelectedItem == "Carre")
+		{
+			figureCourante = new Carre();
+		}
+		else if (comboFigure->SelectedItem == "Cercle")
+		{
+			figureCourante = new Cercle();
+		}
+		if (figureCourante != NULL)
+		{
+			figureCourante->setX(Convert::ToInt32(textX->Text));
+			figureCourante->setY(Convert::ToInt32(textY->Text));
+			figureCourante->setPoint(Convert::ToInt32(textX->Text), Convert::ToInt32(textY->Text));
+			figureCourante->setCote(Convert::ToInt32(textCote->Text));
+			figureCourante->setRayon(Convert::ToInt32(textRayon->Text));
+			lesFigures.AjouterFigure(figureCourante);
+			DessinerFigure();
+		}
+		comboFigure->SelectedIndex = 0;
+		InitialiserTextBox();
+	}
+	else
+	{
+		MessageBox::Show("Choisissez le type de figure que vous voulez créer");
+	}
+}
 
-				if (comboFigure->SelectedIndex != 0)
-				{					
-
-					if ( figureCourante != NULL)
-					{
-
-
-						DessinerFigure();
-					}
-					comboFigure->SelectedIndex = 0;
-					InitialiserTextBox();
-				}
-				else
-				{
-					MessageBox::Show("Choisissez le type de figure que vous voulez créer");
-				}
-		 }
-
-		 void DessinerFigure()
-		 {
-			 Graphics^ objetGraphique = CreateGraphics();
-			 Pen^ crayon;
-			crayon = gcnew Pen(Color::Black);		
-			//donnez les bonnes valeurs à ces variables
-			//vous devez utiliser les valeurs qui se trouvent dans figureCourante
-			int x = 0;
-			int y = 0;
-			int rayon = 0;
-			int cote = 0;
-
-			if (comboFigure->SelectedIndex == 1)
-			 {
-				 objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
-			 }
-			 else
-			 {
-				 objetGraphique->DrawEllipse(crayon, x, y, rayon * 2, rayon * 2);
-			 }
-			 delete crayon;
-			 delete objetGraphique;
-		 }
+	void DessinerFigure()
+	{
+		Graphics^ objetGraphique = CreateGraphics();
+		Pen^ crayon;
+		crayon = gcnew Pen(Color::Black);		
+		//donnez les bonnes valeurs à ces variables
+		//vous devez utiliser les valeurs qui se trouvent dans figureCourante
+		int x = figureCourante->getX();
+		int y = figureCourante->getY();
+		int rayon = figureCourante->getRayon();
+		int cote = figureCourante->getCote();
+		if (comboFigure->SelectedItem == "Carre")
+		{
+			objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
+		}
+		else if (comboFigure->SelectedItem == "Cercle")
+		{
+			objetGraphique->DrawEllipse(crayon, x, y, rayon * 2, rayon * 2);
+		}
+		delete crayon;
+		delete objetGraphique;
+	}
 
 private: System::Void btnPerimetre_Click(System::Object^  sender, System::EventArgs^  e) {
-			 int cptFigure=0;
-			 listBoxFigures->Items->Clear();
-			 listBoxFigures->Items->Add("Périmètre des figures:");
-			 figureCourante = lesFigures.ObtenirFigure(cptFigure);
-			 while (figureCourante != nullptr)
-			 {
-				 
-				 cptFigure++;
-				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
-			 }
-		 }
+	int cptFigure=0;
+	listBoxFigures->Items->Clear();
+	listBoxFigures->Items->Add("Périmètre des figures:");
+	figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	while (figureCourante != nullptr)
+	{
+		listBoxFigures->Items->Add(figureCourante->calculerPerimetre());
+		cptFigure++;
+		figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	}
+}
 
-		void DessinerTout() 
-		{
-			 int cptFigure=0;
-			 figureCourante = lesFigures.ObtenirFigure(cptFigure);
-			 while (figureCourante != nullptr)
-			 {
-				 DessinerFigure();
-				 cptFigure++;
-				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
-			 }
-		 }
+void DessinerTout() 
+{
+	int cptFigure=0;
+	figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	while (figureCourante != nullptr)
+	{
+		DessinerFigure();
+		cptFigure++;
+		figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	}
+}
 
 private: System::Void MyForm_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 			 int cptFigure=0;

@@ -31,6 +31,16 @@ int Figure::getY() const
 	return y;
 }
 
+int Figure::getRayon() const
+{
+	return 0;
+}
+
+int Figure::getCote() const
+{
+	return 0;
+}
+
 bool Figure::EstSelectionne()
 {
 	return estSelectionne;
@@ -52,8 +62,27 @@ void Figure::setY(int inY)
 	y=inY;
 }
 
+void Figure::setCote(int inCote)
+{
+
+}
+
+void Figure::setRayon(int inRayon)
+{
+
+}
+
 void Figure::Deselectionner()
 {
 	estSelectionne = false;
 }
 
+float Figure::calculerPerimetre()
+{
+	return 0;
+}
+
+float Figure::calculerAire()
+{
+	return 0;
+}
