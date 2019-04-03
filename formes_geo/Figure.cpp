@@ -21,6 +21,11 @@ Figure::Figure(const Figure& inFigure)
 	estSelectionne = inFigure.estSelectionne;
 }
 
+Figure::~Figure()
+{
+
+}
+
 int Figure::getX() const
 {
 	return x;
@@ -75,14 +80,4 @@ void Figure::setRayon(int inRayon)
 void Figure::Deselectionner()
 {
 	estSelectionne = false;
-}
-
-float Figure::calculerPerimetre()
-{
-	return 0;
-}
-
-float Figure::calculerAire()
-{
-	return 0;
 }
