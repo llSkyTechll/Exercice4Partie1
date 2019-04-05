@@ -63,8 +63,7 @@ void Figure::setLongueur(int inLargeur)
 
 void Figure::setHauteur(int inHauteur)
 {
-
-
+	
 }
 
 bool Figure::EstSelectionne()

@@ -23,16 +23,16 @@ FormeRectangle::~FormeRectangle()
 
 }
 
-void FormeRectangle::setLongeur(int inLargeur)
+void FormeRectangle::setLongueur(int inLargeur)
 {
-  largeur = inLargeur;
+	largeur = inLargeur;
 }
 void FormeRectangle::setHauteur(int inHauteur)
 {
 	hauteur = inHauteur;
 }
 
-int FormeRectangle::getLargeur() const
+int FormeRectangle::getLongueur() const
 {
 	return largeur;
 }

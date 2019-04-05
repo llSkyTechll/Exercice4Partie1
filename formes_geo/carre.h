@@ -14,9 +14,10 @@ class Carre:public Figure
 
     virtual void setCote(int);
 	virtual int getCote() const;
+	virtual string getType() const;
 	virtual float calculerPerimetre();
 	virtual float calculerAire();
 	virtual void selectionner(int, int);
-	virtual string getType() const;
+	
 };
 #endif

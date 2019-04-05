@@ -67,12 +67,14 @@ namespace formes_geo {
 	private: System::Windows::Forms::TextBox^  textRayon;
 	private: System::Windows::Forms::Label^  lblHauteur;
 	private: System::Windows::Forms::TextBox^  textHauteur;
-	private: System::Windows::Forms::Label^  lblLongeur;
+	private: System::Windows::Forms::Label^  lblLongueur;
+
+	private: System::Windows::Forms::TextBox^  textLongueur;
 
 
 
 
-	private: System::Windows::Forms::TextBox^  textLongeur;
+
 	private: System::Windows::Forms::Button^  btnCalculAire;
 
 
@@ -102,8 +104,8 @@ namespace formes_geo {
 			this->textRayon = (gcnew System::Windows::Forms::TextBox());
 			this->lblHauteur = (gcnew System::Windows::Forms::Label());
 			this->textHauteur = (gcnew System::Windows::Forms::TextBox());
-			this->lblLongeur = (gcnew System::Windows::Forms::Label());
-			this->textLongeur = (gcnew System::Windows::Forms::TextBox());
+			this->lblLongueur = (gcnew System::Windows::Forms::Label());
+			this->textLongueur = (gcnew System::Windows::Forms::TextBox());
 			this->btnCalculAire = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -232,22 +234,22 @@ namespace formes_geo {
 			this->textHauteur->TabIndex = 32;
 			this->textHauteur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
 			// 
-			// lblLongeur
+			// lblLongueur
 			// 
-			this->lblLongeur->Location = System::Drawing::Point(176, 83);
-			this->lblLongeur->Name = L"lblLongeur";
-			this->lblLongeur->Size = System::Drawing::Size(46, 22);
-			this->lblLongeur->TabIndex = 31;
-			this->lblLongeur->Text = L"Largeur:";
-			this->lblLongeur->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
+			this->lblLongueur->Location = System::Drawing::Point(166, 83);
+			this->lblLongueur->Name = L"lblLongueur";
+			this->lblLongueur->Size = System::Drawing::Size(56, 22);
+			this->lblLongueur->TabIndex = 31;
+			this->lblLongueur->Text = L"Longueur";
+			this->lblLongueur->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
-			// textLongeur
+			// textLongueur
 			// 
-			this->textLongeur->Location = System::Drawing::Point(226, 81);
-			this->textLongeur->Name = L"textLongeur";
-			this->textLongeur->Size = System::Drawing::Size(37, 20);
-			this->textLongeur->TabIndex = 30;
-			this->textLongeur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
+			this->textLongueur->Location = System::Drawing::Point(226, 81);
+			this->textLongueur->Name = L"textLongueur";
+			this->textLongueur->Size = System::Drawing::Size(37, 20);
+			this->textLongueur->TabIndex = 30;
+			this->textLongueur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// btnCalculAire
 			// 
@@ -267,8 +269,8 @@ namespace formes_geo {
 			this->Controls->Add(this->btnCalculAire);
 			this->Controls->Add(this->lblHauteur);
 			this->Controls->Add(this->textHauteur);
-			this->Controls->Add(this->lblLongeur);
-			this->Controls->Add(this->textLongeur);
+			this->Controls->Add(this->lblLongueur);
+			this->Controls->Add(this->textLongueur);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textRayon);
 			this->Controls->Add(this->btnModifie);
@@ -308,7 +310,7 @@ void InitialiserTextBox()
 	textCote->Text = "0";
 	textRayon->Text = "0";
 	textHauteur->Text = "0";
-	textLongeur->Text = "0";
+	textLongueur->Text = "0";
 }
 
 private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs^  e) {
@@ -334,6 +336,8 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 			figureCourante->setPoint(Convert::ToInt32(textX->Text), Convert::ToInt32(textY->Text));
 			figureCourante->setCote(Convert::ToInt32(textCote->Text));
 			figureCourante->setRayon(Convert::ToInt32(textRayon->Text));
+			figureCourante->setHauteur(Convert::ToInt32(textHauteur->Text));
+			figureCourante->setLongueur(Convert::ToInt32(textLongueur->Text));
 			lesFigures.AjouterFigure(figureCourante);
 			DessinerFigure();
 		}
@@ -422,6 +426,9 @@ private: System::Void MyForm_MouseClick(System::Object^  sender, System::Windows
 					 textY->Text = figureCourante->getY().ToString();
 					 textRayon->Text = figureCourante->getRayon().ToString();
 					 textCote->Text = figureCourante->getCote().ToString();
+					 textLongueur->Text = figureCourante->getLongueur().ToString();
+					 textHauteur->Text = figureCourante->getHauteur().ToString();
+					 MessageBox::Show(gcnew String(figureCourante->getType().c_str()));
 				 }
 				 cptFigure++;
 				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
@@ -438,7 +445,7 @@ private: System::Void btnModifie_Click(System::Object^  sender, System::EventArg
 				 if (figureCourante->EstSelectionne() == true)
 				 {
 					 figureCourante->setHauteur(Convert::ToInt32(textHauteur->Text));
-					 figureCourante->setLongueur(Convert::ToInt32(textLongeur->Text));
+					 figureCourante->setLongueur(Convert::ToInt32(textLongueur->Text));
 					 figureCourante->setCote(Convert::ToInt32(textCote->Text));
 					 figureCourante->setRayon(Convert::ToInt32(textRayon->Text));
 					 figureCourante->setX(Convert::ToInt32(textX->Text));
@@ -468,6 +475,8 @@ private: System::Void btnCalculAire_Click(System::Object^  sender, System::Event
 	while (figureCourante != NULL)
 	{
 		listBoxFigures->Items->Add(figureCourante->calculerAire());
+		cptFigure++;
+		figureCourante = lesFigures.ObtenirFigure(cptFigure);
 	}
 }
 };
