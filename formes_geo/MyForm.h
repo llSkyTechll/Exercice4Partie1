@@ -1,6 +1,7 @@
 #pragma once
 #include "cercle.h"
 #include "carre.h"
+#include "rectangle.h"
 #include "donnees.h"
 
 namespace formes_geo {
@@ -321,6 +322,10 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 		else if (comboFigure->SelectedItem == "Cercle")
 		{
 			figureCourante = new Cercle();
+		}
+		else if (comboFigure->SelectedItem == "Rectangle")
+		{
+			figureCourante = new FormeRectangle();
 		}
 		if (figureCourante != NULL)
 		{

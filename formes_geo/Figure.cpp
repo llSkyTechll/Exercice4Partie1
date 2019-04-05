@@ -51,12 +51,12 @@ int Figure::getHauteur() const
 	return 0;
 }
 
-int Figure::getLargeur() const
+int Figure::getLongueur() const
 {
 	return 0;
 }
 
-void Figure::setLongeur(int inLargeur)
+void Figure::setLongueur(int inLargeur)
 {
 	
 }
