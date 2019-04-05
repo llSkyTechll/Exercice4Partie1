@@ -56,7 +56,7 @@ int Figure::getLargeur() const
 	return 0;
 }
 
-void Figure::setLargeur(int inLargeur)
+void Figure::setLongeur(int inLargeur)
 {
 	
 }

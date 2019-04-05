@@ -13,10 +13,11 @@ class FormeRectangle:public Figure
 	FormeRectangle(const FormeRectangle&);
 	virtual ~FormeRectangle();
 
-	virtual void setLargeur(int);
+	virtual void setLongeur(int);
 	virtual void setHauteur(int);
 	virtual int getLargeur() const;
 	virtual int getHauteur() const;
+	virtual string getType()const;
 	virtual float calculerAire();
 	virtual float calculerPerimetre();
 	virtual void selectionner(int,int);

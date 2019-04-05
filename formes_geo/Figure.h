@@ -29,14 +29,14 @@ public:
 	virtual void setCote(int);
 	virtual void setRayon(int);
 
-	virtual void setLargeur(int);
+	virtual void setLongeur(int);
 	virtual void setHauteur(int);
 	virtual int getLargeur() const;
 	virtual int getHauteur() const;
 
 	bool EstSelectionne();	
 	void Deselectionner();
-
+	virtual string getType() const = 0;
 	virtual float calculerPerimetre() = 0;
 	virtual float calculerAire() = 0;
 	virtual void selectionner(int, int) = 0;
