@@ -358,9 +358,15 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 		int y = figureCourante->getY();
 		int rayon = figureCourante->getRayon();
 		int cote = figureCourante->getCote();
+		int hauteur = figureCourante->getHauteur();
+		int longueur = figureCourante->getLongueur();
 		if (cote != 0)
 		{
 			objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
+		}
+		else if (hauteur != 0 && longueur != 0)
+		{
+			objetGraphique->DrawRectangle(crayon, x, y, longueur, hauteur);
 		}
 		else
 		{
