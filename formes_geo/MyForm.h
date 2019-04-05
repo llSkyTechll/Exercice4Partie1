@@ -437,6 +437,8 @@ private: System::Void btnModifie_Click(System::Object^  sender, System::EventArg
 			 {
 				 if (figureCourante->EstSelectionne() == true)
 				 {
+					 figureCourante->setHauteur(Convert::ToInt32(textHauteur->Text));
+					 figureCourante->setLongueur(Convert::ToInt32(textLongeur->Text));
 					 figureCourante->setCote(Convert::ToInt32(textCote->Text));
 					 figureCourante->setRayon(Convert::ToInt32(textRayon->Text));
 					 figureCourante->setX(Convert::ToInt32(textX->Text));
