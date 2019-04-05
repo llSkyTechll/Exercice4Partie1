@@ -22,13 +22,16 @@ public:
 	int getY() const;
 	virtual int getRayon() const;
 	virtual int getCote() const;
+
 	void setPoint(int X, int Y);
 	void setX(int);
 	void setY(int);
 	virtual void setCote(int);
 	virtual void setRayon(int);
+
 	bool EstSelectionne();	
 	void Deselectionner();
+
 	virtual float calculerPerimetre() = 0;
 	virtual float calculerAire() = 0;
 	virtual void selectionner(int, int) = 0;
