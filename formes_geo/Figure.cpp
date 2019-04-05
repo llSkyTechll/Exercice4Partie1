@@ -46,6 +46,27 @@ int Figure::getCote() const
 	return 0;
 }
 
+int Figure::getHauteur() const
+{
+	return 0;
+}
+
+int Figure::getLargeur() const
+{
+	return 0;
+}
+
+void Figure::setLargeur(int inLargeur)
+{
+	
+}
+
+void Figure::setHauteur(int inHauteur)
+{
+
+
+}
+
 bool Figure::EstSelectionne()
 {
 	return estSelectionne;

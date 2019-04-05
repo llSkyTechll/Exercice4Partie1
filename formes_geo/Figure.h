@@ -29,6 +29,11 @@ public:
 	virtual void setCote(int);
 	virtual void setRayon(int);
 
+	virtual void setLargeur(int);
+	virtual void setHauteur(int);
+	virtual int getLargeur() const;
+	virtual int getHauteur() const;
+
 	bool EstSelectionne();	
 	void Deselectionner();
 
