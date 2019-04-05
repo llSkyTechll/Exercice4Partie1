@@ -281,6 +281,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 	comboFigure->Items->Add("");
 	comboFigure->Items->Add("Carre");
 	comboFigure->Items->Add("Cercle");
+	comboFigure->Items->Add("Rectangle");
 	figureCourante = NULL;
 	InitialiserTextBox();
 }
@@ -291,6 +292,8 @@ void InitialiserTextBox()
 	textY->Text = "0";
 	textCote->Text = "0";
 	textRayon->Text = "0";
+	textHauteur->Text = "0";
+	textLongueur->Text = "0";
 }
 
 private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs^  e) {
