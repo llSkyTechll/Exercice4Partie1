@@ -30,6 +30,11 @@ int Carre::getCote() const
 	return cote;
 }
 
+string Carre::getType() const
+{
+	return "Carre";
+}
+
 float Carre::calculerPerimetre()
 {
 	return (4 * cote);
@@ -59,9 +64,4 @@ void Carre::selectionner(int inX, int inY)
 	{
 		estSelectionne = false;
 	}
-}
-
-string Carre::getType()
-{
-	return "Carre";
 }
