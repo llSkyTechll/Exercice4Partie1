@@ -71,6 +71,7 @@ namespace formes_geo {
 
 	private: System::Windows::Forms::Label^  lblLargeur;
 	private: System::Windows::Forms::TextBox^  textLongeur;
+	private: System::Windows::Forms::Button^  btnCalculAire;
 
 
 
@@ -101,6 +102,7 @@ namespace formes_geo {
 			this->textHauteur = (gcnew System::Windows::Forms::TextBox());
 			this->lblLargeur = (gcnew System::Windows::Forms::Label());
 			this->textLongeur = (gcnew System::Windows::Forms::TextBox());
+			this->btnCalculAire = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label3
@@ -245,11 +247,22 @@ namespace formes_geo {
 			this->textLongeur->TabIndex = 30;
 			this->textLongeur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
+			// btnCalculAire
+			// 
+			this->btnCalculAire->Location = System::Drawing::Point(304, 74);
+			this->btnCalculAire->Name = L"btnCalculAire";
+			this->btnCalculAire->Size = System::Drawing::Size(121, 23);
+			this->btnCalculAire->TabIndex = 34;
+			this->btnCalculAire->Text = L"Calculer aire";
+			this->btnCalculAire->UseVisualStyleBackColor = true;
+			this->btnCalculAire->Click += gcnew System::EventHandler(this, &MyForm::btnCalculAire_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(892, 490);
+			this->Controls->Add(this->btnCalculAire);
 			this->Controls->Add(this->lblHauteur);
 			this->Controls->Add(this->textHauteur);
 			this->Controls->Add(this->lblLargeur);
@@ -433,6 +446,15 @@ private: System::Void textBox2_TextChanged(System::Object^  sender, System::Even
 private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void btnCalculAire_Click(System::Object^  sender, System::EventArgs^  e) {
+	int cptFigure = 0;
+	listBoxFigures->Items->Clear();
+	figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	while (figureCourante != NULL)
+	{
+		listBoxFigures->Items->Add(figureCourante->calculerAire());
+	}
 }
 };
 }
