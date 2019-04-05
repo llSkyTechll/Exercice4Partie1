@@ -306,7 +306,7 @@ void InitialiserTextBox()
 	textCote->Text = "0";
 	textRayon->Text = "0";
 	textHauteur->Text = "0";
-	textLongueur->Text = "0";
+	textLongeur->Text = "0";
 }
 
 private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs^  e) {

@@ -52,6 +52,21 @@ float FormeRectangle::calculerPerimetre()
 
 void FormeRectangle::selectionner(int inX,int inY)
 {
-	if ((inX>mX) && (inX<(mX+largeur)) && (inY>mY) && (inY<(mY+hauteur)))
-		estSelectionne = true;
+	float XFloat = float(inX);
+	float YFloat = float(inY);
+	if (XFloat >= x && XFloat <= x + largeur)
+	{
+		if (YFloat >= y && YFloat <= y + hauteur)
+		{
+			estSelectionne = true;
+		}
+		else
+		{
+			estSelectionne = false;
+		}
+	}
+	else
+	{
+		estSelectionne = false;
+	}
 }
