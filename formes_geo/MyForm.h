@@ -64,6 +64,16 @@ namespace formes_geo {
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::TextBox^  textRayon;
+	private: System::Windows::Forms::Label^  lblHauteur;
+	private: System::Windows::Forms::TextBox^  textHauteur;
+
+
+
+	private: System::Windows::Forms::Label^  lblLargeur;
+	private: System::Windows::Forms::TextBox^  textLongeur;
+
+
+
 
 	private: System::Windows::Forms::Button^  btnModifie;
 
@@ -87,6 +97,10 @@ namespace formes_geo {
 			this->btnModifie = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textRayon = (gcnew System::Windows::Forms::TextBox());
+			this->lblHauteur = (gcnew System::Windows::Forms::Label());
+			this->textHauteur = (gcnew System::Windows::Forms::TextBox());
+			this->lblLargeur = (gcnew System::Windows::Forms::Label());
+			this->textLongeur = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// label3
@@ -164,7 +178,7 @@ namespace formes_geo {
 			// 
 			// btnCreerFigure
 			// 
-			this->btnCreerFigure->Location = System::Drawing::Point(15, 88);
+			this->btnCreerFigure->Location = System::Drawing::Point(12, 138);
 			this->btnCreerFigure->Name = L"btnCreerFigure";
 			this->btnCreerFigure->Size = System::Drawing::Size(127, 23);
 			this->btnCreerFigure->TabIndex = 25;
@@ -197,11 +211,49 @@ namespace formes_geo {
 			this->textRayon->Size = System::Drawing::Size(37, 20);
 			this->textRayon->TabIndex = 27;
 			// 
+			// lblHauteur
+			// 
+			this->lblHauteur->Location = System::Drawing::Point(176, 111);
+			this->lblHauteur->Name = L"lblHauteur";
+			this->lblHauteur->Size = System::Drawing::Size(46, 22);
+			this->lblHauteur->TabIndex = 33;
+			this->lblHauteur->Text = L"Hauteur:";
+			this->lblHauteur->Click += gcnew System::EventHandler(this, &MyForm::label5_Click);
+			// 
+			// textHauteur
+			// 
+			this->textHauteur->Location = System::Drawing::Point(226, 109);
+			this->textHauteur->Name = L"textHauteur";
+			this->textHauteur->Size = System::Drawing::Size(37, 20);
+			this->textHauteur->TabIndex = 32;
+			this->textHauteur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
+			// 
+			// lblLargeur
+			// 
+			this->lblLargeur->Location = System::Drawing::Point(176, 83);
+			this->lblLargeur->Name = L"lblLargeur";
+			this->lblLargeur->Size = System::Drawing::Size(46, 22);
+			this->lblLargeur->TabIndex = 31;
+			this->lblLargeur->Text = L"Largeur:";
+			this->lblLargeur->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
+			// 
+			// textLongeur
+			// 
+			this->textLongeur->Location = System::Drawing::Point(226, 81);
+			this->textLongeur->Name = L"textLongeur";
+			this->textLongeur->Size = System::Drawing::Size(37, 20);
+			this->textLongeur->TabIndex = 30;
+			this->textLongeur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(892, 490);
+			this->Controls->Add(this->lblHauteur);
+			this->Controls->Add(this->textHauteur);
+			this->Controls->Add(this->lblLargeur);
+			this->Controls->Add(this->textLongeur);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textRayon);
 			this->Controls->Add(this->btnModifie);
@@ -371,5 +423,13 @@ private: System::Void btnModifie_Click(System::Object^  sender, System::EventArg
 			 DessinerTout();
 		 }
 
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

@@ -84,6 +84,7 @@
     <ClCompile Include="donnees.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carre.h" />
@@ -93,6 +94,7 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
