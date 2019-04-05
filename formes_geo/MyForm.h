@@ -66,10 +66,11 @@ namespace formes_geo {
 	private: System::Windows::Forms::TextBox^  textRayon;
 	private: System::Windows::Forms::Label^  lblHauteur;
 	private: System::Windows::Forms::TextBox^  textHauteur;
+	private: System::Windows::Forms::Label^  lblLongeur;
 
 
 
-	private: System::Windows::Forms::Label^  lblLargeur;
+
 	private: System::Windows::Forms::TextBox^  textLongeur;
 	private: System::Windows::Forms::Button^  btnCalculAire;
 
@@ -100,7 +101,7 @@ namespace formes_geo {
 			this->textRayon = (gcnew System::Windows::Forms::TextBox());
 			this->lblHauteur = (gcnew System::Windows::Forms::Label());
 			this->textHauteur = (gcnew System::Windows::Forms::TextBox());
-			this->lblLargeur = (gcnew System::Windows::Forms::Label());
+			this->lblLongeur = (gcnew System::Windows::Forms::Label());
 			this->textLongeur = (gcnew System::Windows::Forms::TextBox());
 			this->btnCalculAire = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
@@ -230,14 +231,14 @@ namespace formes_geo {
 			this->textHauteur->TabIndex = 32;
 			this->textHauteur->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
 			// 
-			// lblLargeur
+			// lblLongeur
 			// 
-			this->lblLargeur->Location = System::Drawing::Point(176, 83);
-			this->lblLargeur->Name = L"lblLargeur";
-			this->lblLargeur->Size = System::Drawing::Size(46, 22);
-			this->lblLargeur->TabIndex = 31;
-			this->lblLargeur->Text = L"Largeur:";
-			this->lblLargeur->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
+			this->lblLongeur->Location = System::Drawing::Point(176, 83);
+			this->lblLongeur->Name = L"lblLongeur";
+			this->lblLongeur->Size = System::Drawing::Size(46, 22);
+			this->lblLongeur->TabIndex = 31;
+			this->lblLongeur->Text = L"Largeur:";
+			this->lblLongeur->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// textLongeur
 			// 
@@ -265,7 +266,7 @@ namespace formes_geo {
 			this->Controls->Add(this->btnCalculAire);
 			this->Controls->Add(this->lblHauteur);
 			this->Controls->Add(this->textHauteur);
-			this->Controls->Add(this->lblLargeur);
+			this->Controls->Add(this->lblLongeur);
 			this->Controls->Add(this->textLongeur);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textRayon);

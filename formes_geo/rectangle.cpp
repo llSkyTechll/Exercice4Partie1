@@ -23,7 +23,7 @@ FormeRectangle::~FormeRectangle()
 
 }
 
-void FormeRectangle::setLargeur(int inLargeur)
+void FormeRectangle::setLongeur(int inLargeur)
 {
   largeur = inLargeur;
 }
@@ -39,6 +39,11 @@ int FormeRectangle::getLargeur() const
 int FormeRectangle::getHauteur() const
 {
 	return hauteur;
+}
+
+string FormeRectangle::getType() const
+{
+	return "Rectangle";
 }
 float FormeRectangle::calculerAire()
 {
