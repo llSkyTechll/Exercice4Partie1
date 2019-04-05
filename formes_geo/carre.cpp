@@ -60,3 +60,8 @@ void Carre::selectionner(int inX, int inY)
 		estSelectionne = false;
 	}
 }
+
+string Carre::getType()
+{
+	return "Carre";
+}

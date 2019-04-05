@@ -17,5 +17,6 @@ class Carre:public Figure
 	virtual float calculerPerimetre();
 	virtual float calculerAire();
 	virtual void selectionner(int, int);
+	virtual string getType();
 };
 #endif
